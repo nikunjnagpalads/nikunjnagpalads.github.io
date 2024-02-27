@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JavaScript Evolution: Callbacks, Promises and Async-await</title>
+    <meta name="robots" content="FOLLOW,INDEX" />
+    <meta name="description" content="This article will help you understand How JavaScript manages to do asynchronus operations and how JS has evolved over the time to do it better using Promises and Async-await." />
+
+    <!-- Canonical tag of the page-->
+    <link rel="canonical" href="https://indar.xyz/blogs/javascript/javascript-evolution-callbacks-promises-async.html" />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:image" content="https://brandslogos.com/wp-content/uploads/images/large/javascript-logo.png" />
+
+    <!--CSS -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/blog-inner.css" />
+    <link rel="stylesheet" href="../../css/prism.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+
+  </head>
+  <body>
+
+    <section class="in blog-inner">
+      <header>
+        <a href="../../index.html" class="logo"><img src="../../images/logo.png" alt="" /></a>
+         <span class="hamburger-box hamburger hamburger--squeeze"> <span class="hamburger-inner"></span></span>
+        <ul class="nav vis-desk">
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../work.html">Bits</a></li>
+          <li class="active-nav"><a href="../../blogs.html">Blogs</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+          <li><a href="../../Indrjit-Resume.pdf">Resume</a></li>
+        </ul>
+      </header>
+      <ul class="mob-nav vis-mob">
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../work.html">Bits</a></li>
+          <li><a href="../../blogs.html">Blogs</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+          <li><a href="../../Indrjit-Resume.pdf">Resume</a></li>
+      </ul>
+
+
+      <section class="blog-holder">
+
+        <header class="blog-header">
+          <div class="header-container">
+            <div class="heading-content">
+              <h1>JavaScript Evolution </h1>
+              <h3>History of JS in asynchronus world: Callbacks, Promises and Async await.</h3>
+            </div>
+            <div class="social-share">
+              <span>SHARE: </span> <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+            </div>
+          </div>
+        </header>
+        <section>
+          <div class="container-content">
+            <p>Let’s say you have a function that will print a string after a random amount of time:</p>
+ <pre>
+              <code class="language-js">
+function writeText(string){
+  setTimeout(
+    () => {
+      console.log(string)
+    }, 
+    Math.floor(Math.random() * 100) + 1
+  )
+}
+</code>
+            </pre>
+<p>Let’s try to print the letters A, B, C in that order:</p>
+
+ <pre>
+    <code class="language-js">
+function writeAllText(){
+  writeText("A")
+  writeText("B")
+  writeText("C")
+}
+writeAllText()
+   </code>
+            </pre>
+<p>You will notice that A, B, and C print in a different and random order each time you call writeAllText!
+This is because these functions are asynchronous. Each function gets executed in order, but each one is independent with it’s own setTimeout. They won’t wait for the last function to finish before they start.
+This is super annoying, so let’s fix it with a callback.</p>
+
+
+            <h2>Callbacks<span> (Old school...)</span></h2>
+
+            <p>A callback is a function that is passed to another function. When the first function is done, it will run the second function</p>
+             <pre>
+    <code class="language-js">
+function writeText(string, callback){
+  setTimeout(
+    () => {
+      console.log(string)
+      callback()
+    }, 
+    Math.floor(Math.random() * 100) + 1
+  )
+}
+</code>
+            </pre>
+
+             <p>You can see that is is super easy to modify the original function to work with callbacks. <br><br>Again, let’s try to print the letters A, B, C in that order:</p>
+
+             <pre>
+              <code class="language-js">
+function writeAllText(){
+  writeText("A", () => {
+    writeText("B", () => {
+      writeText("C", () => {})
+    })
+  })
+}
+writeAllText()
+              </code>
+            </pre>
+
+
+             <p>Well, the code is a lot uglier now, but at least it works! Each time you call writeAllText, you get the same result.<br><br>
+The problem with callbacks is it creates something called “Callback Hell.” Basically, you start nesting functions within functions within functions, and it starts to get really hard to read the code.
+</p>
+<h2>Promises <span>(Cooool...)</span></h2>
+<p>Promises try to fix this nesting problem. Let’s change our function to use Promises</p>
+
+<pre>
+  <code class="language-js">
+function writeText(string){
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => {
+       console.log(string)
+       resolve()
+      }, 
+     Math.floor(Math.random() * 100) + 1
+    )
+  })
+
+  </code>
+</pre>
+<p>You can see that it still looks pretty similar. You wrap the whole function in a Promise, and instead of calling the callback, you call resolve (or reject if there is an error). The function returns this Promise object.<br><br>
+Again, let’s try to print the letters A, B, C in that order:
+</p>
+<pre>
+  <code class="language-js">
+function writeAllText(){
+  writeText("A")
+  .then(() => {
+    return writeText("B")
+  })
+  .then(() => {
+    return writeText("C")
+  })
+}
+writeAllText()
+ </code>
+</pre>
+<p>This is called a Promise Chain. You can see that the code returns the result of the function (which will be a Promise), and this gets sent to the next function in the chain.<br><br>
+The code is no longer nested but it still looks messy!<br><br>
+By using features of arrow functions, we can remove the “wrapper” function. The code becomes cleaner, but still has a lot of unnecessary parenthesis:
+</p>
+<pre>
+  <code class="language-js">
+function writeAllText(){
+  writeText("A")
+  .then(() => writeText("B"))
+  .then(() => writeText("C"))
+}
+writeAllText()
+ </code>
+</pre>
+<h2>Async|await<span>(Stylish...)</span></h2>
+<p>Await is basically syntactic sugar for Promises. It makes your asynchronous code look more like synchronous/procedural code, which is easier for humans to understand.<br><br>
+The writeText function doesn’t change at all from the promise version.<br><br>
+Again, let’s try to print the letters A, B, C in that order:
+</p>
+
+<pre>
+  <code class="language-js">
+async function writeAllText(){
+  await writeText("A")
+  await writeText("B")
+  await writeText("C")
+}
+writeAllText()
+  </code>
+</pre>
+<p>Yeah…. MUCH better!<br><br> You might notice that we use the “async” keyword for the wrapper function writeAllText. This let’s JavaScript know that we are using async/await syntax, and is necessary if you want to use Await. This means you can’t use Await at the global level; it always needs a wrapper function. Most JavaScript code runs inside a function, so this isn’t a big deal.</p>
+
+<h2>But Wait !!! There is more...</h2>
+<p>The writeText function doesn’t return anything and is independent, all we cared about was the order. But what if you wanted to take the output of the first function, do something with it in the second function, and then pass it to the third function?</p>
+<p>Instead of printing the string each time, let’s make a function that will concatenate the string and pass it on.</p>
+<h4>Here it is in callback style:</h4>
+<pre>
+  <code class="language-js">
+function addString(previous, current, callback){
+  setTimeout(
+    () => {
+      callback((previous + ' ' + current))
+    }, 
+    Math.floor(Math.random() * 100) + 1
+  )
+}
+  </code>
+</pre>
+<p>in order to call it:</p>
+<pre>
+  <code class="language-js">
+function addAll(){
+  addString('', 'A', result => {
+    addString(result, 'B', result => {
+      addString(result, 'C', result => {
+       console.log(result) // Prints out " A B C"
+      })
+    })
+  })
+}
+addAll()
+  </code>
+</pre>
+<p style="color: red">Not so nice. </p>
+
+<h4>Here it is in Promise style:</h4>
+<pre>
+  <code class="language-js">
+function addString(previous, current){
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => {
+        resolve(previous + ' ' + current)
+      }, 
+      Math.floor(Math.random() * 100) + 1
+    )
+  })
+}
+  </code>
+</pre>
+<p>And in order to call it:</p>
+<pre>
+  <code class="language-js">
+function addAll(){  
+  addString('', 'A')
+  .then(result => {
+    return addString(result, 'B')
+  })
+  .then(result => {
+    return addString(result, 'C')
+  })
+  .then(result => {
+    console.log(result) // Prints out " A B C"
+  })
+}
+addAll()
+
+  </code>
+</pre>
+<p>Using arrow functions means we can make the code a little nicer:</p>
+<pre>
+  <code class="language-js">
+function addAll(){  
+  addString('', 'A')
+  .then(result => addString(result, 'B'))
+  .then(result => addString(result, 'C'))
+  .then(result => {
+    console.log(result) // Prints out " A B C"
+  })
+}
+addAll()
+ </code>
+</pre>
+<p>This is definitely more readable, especially if you add more to the chain, <b style="color: #f00">but still a mess of parenthesis.</b></p>
+
+<h4>Here it is in Async|await style:</h4>
+<p>The function stays the same as the Promise version.<br>
+And in order to call it:
+</p>
+<pre>
+  <code class="language-js">
+async function addAll(){
+  let toPrint = ''
+  toPrint = await addString(toPrint, 'A')
+  toPrint = await addString(toPrint, 'B')
+  toPrint = await addString(toPrint, 'C')
+  console.log(toPrint) // Prints out " A B C"
+}
+addAll()
+
+  </code>
+</pre>
+<p>And in order to call it:</p>
+<pre>
+  <code class="language-js">
+function addAll(){  
+  addString('', 'A')
+  .then(result => {
+    return addString(result, 'B')
+  })
+  .then(result => {
+    return addString(result, 'C')
+  })
+  .then(result => {
+    console.log(result) // Prints out " A B C"
+  })
+}
+addAll()
+
+  </code>
+</pre>
+<p>Yeah. SO MUCH BETTER.</p>
+
+             <div class="note">
+              <p>Callback are the only way by which JavaScript achieves asynchronocity, there is no other way as JS is single threaded language. Promises and Async|await are syntactical sugar on top of it to make our code readable. Back of the hood all are dealing in callbacks.</p>
+             </div>
+
+
+          </div>
+          <!-- <div class="series-block">
+            <h6><strong>Series:</strong> JS Upgrades</h6>
+            <h2>JavaScript (ES7 | ES8 | ES9 | ES10) </h1>
+            <h4>This article will walk you through 'Javascript' upgrades post ES6. (Part-1)</h3>
+              <a href="ECMAscript-2016-2017-2018-2019.html">Read More</a>
+          </div> -->
+          <div class="related-blogs-holder">
+            <h2>Take a look at other related articles you might find helpful: </h2>
+            <ul>
+              <li><a href="ECMAscript-2016-2017-2018-2019.html"><strong>JavaScript Upgrades(1).</strong> This article comprises of features added between year 2016-2019. </a></li>
+              <li><a href="ECMAscript-2020-2021-2022.html"><strong>JavaScript Upgrades(2).</strong> This article comprises of features added between year 2020-2022. </a></li>
+              <!-- <li><a href=""><strong>Vestibulum pellentesque</strong> tempus odio ac congue. </a></li>
+              <li><a href=""><strong>Class aptent taciti sociosqu ad litora torquent</strong> per conubia nostra, per inceptos himenaeos. </a></li>
+              <li><a href=""><strong>Nam egestas posuere</strong> lorem in scelerisque. Integer at ante ex. </a></li>
+              <li><a href=""><strong>Etiam tempus</strong> mi in mi sagittis, non consequat velit accumsan. </a></li> -->
+            </ul>
+          </div>
+        </section>
+
+        <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://indrjit.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </section>
+      <footer>
+        Copyright © <script>document.write(new Date().getFullYear())</script>. All Rights Reserved.
+      </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="../script/prism.js"></script>
+    <script>
+      $(window).on('scroll', function () {
+        $('.blog-inner > header').toggleClass('shadow', $(document).scrollTop() > 20);
+    }).scroll();  //
+    </script>
+
+    <script src="../script/main.js"></script>
+    <script src="../prism.js"></script>
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5baf5e219b1c14ce"></script>
+
+  </body>
+</html>

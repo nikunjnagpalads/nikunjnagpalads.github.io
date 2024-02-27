@@ -1,0 +1,135 @@
+.about-content {
+    width: calc(100% - 35vw);
+    text-align: center;
+    margin: 0 auto 10vh;
+}
+.about-content .social {
+    position: static;
+    margin-top: 4vh;
+} 
+.about-content p {
+    margin-top: 40px;
+}
+.about-content p span{
+    font-weight: 600;
+    color: #ff0260;
+}
+.case-studies {
+    max-width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 10vh;
+}
+.case-studies > div {
+    width: 47%;
+    position: relative;
+}
+.case-studies > div img {
+    opacity: 0.1;
+    transition: all 0.3s ease 0s;
+}
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+    border: 1px solid transparent;
+    transition: all 0.3s ease 0s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.content h2 {
+    font-size: 3vh;
+}
+.content p {
+    font-size: 1.5vh;
+    max-width: 85%;
+}
+.case-studies > div:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transition: all 0.3s ease 0s;
+    background-color: #ff0260;
+    opacity: 0.15;
+}
+.case-studies > div:hover img {
+    opacity: 0.1;
+}
+.case-studies > div:hover :after {
+    opacity: 0.2;
+}
+.case-studies > div:hover .content {
+    border: 1px solid #ff1a60;
+}
+
+
+
+
+
+@media (max-width: 767px){
+    
+
+section.about-holder {
+    max-width: 90%;
+    margin: 120px auto 70px;
+    flex-direction: column;
+}
+section.about-holder .about-img {
+    width: 100%;
+}
+.about-content {
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+    margin-top: 70px;
+}
+.about-content h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+
+
+}
+
+
+
+@media (min-width:768px) and (max-width: 1024px){
+section.about-holder {
+    max-width: 90%;
+    margin: 120px auto 70px;
+    flex-direction: column;
+}
+section.about-holder .about-img {
+    width: 100%;
+}
+.about-content {
+    width: 80%;
+    padding-left: 0;
+    text-align: center;
+    margin-top: 70px;
+}
+.about-content img {
+    width: 70%;
+    margin: 0 auto;
+}
+}
+
+
+
+@media (min-width:1200px) and (max-width: 1400px){
+
+}
