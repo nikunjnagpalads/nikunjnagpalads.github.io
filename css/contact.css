@@ -108,7 +108,7 @@ button.blankButton {
 
 
 
-@media (max-width: 767px){
+@media (max-width: 1024px){
     
 section.contactPageSection {
     max-width: 90%;
@@ -126,6 +126,10 @@ section.contactPageSection {
 }
 .contactContent p {
     margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 16px;
+}
+.contactContent p i {
     font-size: 16px;
 }
 .contactContent ul li a {
@@ -144,8 +148,16 @@ section.contactPageSection {
     background-position: 0px -57px;
     background-size: 125px;
 }
+.contactContent .social {
+    position: static;
+    margin-top: 50px;
+}
 .social h4 {
-    font-size: 16px;
+    font-size: 12px;
+    margin-right: 0;
+    display: block;
+    line-height: 15px;
+    margin-bottom: 7px;
 }
 .social a.fb {
     background-position: 0 0;
@@ -175,57 +187,5 @@ section.contactPageSection {
 @media (min-width:768px) and (max-width: 1024px){
 
 
-section.contactPageSection {
-    max-width: 90%;
-    margin: 110px auto;
-    flex-direction: column;
-}
-.contactContent {
-    text-align: center;
-    margin-bottom: 60px;
-}
-.contactContent p {
-    margin-bottom: 20px;
-    max-width: 85%;
-    margin: 0 auto 20px;
-    line-height: 27px;
-}
-.contactContent h2 {
-    font-size: 45px;
-}
-.contactForm {
-    width: 70%;
-    order: 2;
-    margin: 0 auto;
-}
-.contactContent {
-    padding-left: 0;
-}
-.contactForm form {
-    max-width: 100%;
-}
 
-
-}
-
-
-
-@media (min-width:1200px) and (max-width: 1400px){
-
-.contactForm form {
-    max-width: 90%;
-}
-.contactForm {
-    width: 35%;
-}
-.contactContent {
-    width: 100%;
-    padding-left: 0;
-}
-.contactContent h2 {
-    font-size: 40px;
-}
-section.contactPageSection {
-    max-width: 65%;
-}
 }

@@ -64,32 +64,33 @@
 }
 
 @media (max-width: 1024px) {
-  .home header.openNav {
-    box-shadow: 0px -3px 7px #666;
+  .bodyContainer {
+    margin-top: 50px;
   }
-  section.home .bodyContainer {
-    height: auto;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 80px;
-  }
-  .content {
-    max-width: 100%;
-    order: 2;
-    margin-top: 30px;
-    text-align: center;
-  }
-  .content h1 {
-    font-weight: 400;
-  }
-  .content h3 {
-    font-size: 35px;
-    letter-spacing: -2px;
-    line-height: 35px;
-    left: -1px;
-    position: relative;
-    font-weight: 900;
-  }
+  .bodyContainer .content {
+    padding: 5vw 1vw;
+}
+.content .profileImage {
+  height: 28vh;
+  width: 28vh;
+}
+.content h1 {
+  font-weight: 400;
+}
+.content h3 {
+  font-size: 15px;
+  letter-spacing: 0px;
+  line-height: 19px;
+  /* left: -1px; */
+  /* position: relative; */
+  font-weight: 400;
+}
+.bigCircle span {
+  opacity: 0.1;
+}
+.smallerCircle span{
+    opacity: 0.1;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
