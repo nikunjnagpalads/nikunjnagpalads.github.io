@@ -1,6 +1,64 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Hello</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="shortcut icon" href="fav.png" />
+    <!--CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>Nikunj Nagapal</title>
   </head>
-  <body>Hello World!</body>
+  <body>
+    <!-- <div id="preloader"><div class="inner"><h1>Hello!</h1><img src="images/quotes.png" alt="" class="quote" /></div></div> -->
+    <section>
+      <header class="navHolder">
+        <a href="index.html" class="logo"><img src="images/profile_logo.png" alt="" /></a>
+        <ul class="nav vis-desk">
+          <li class="active-nav"><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+	    <span class="hamburger-box hamburger hamburger--squeeze"> <span class="hamburger-inner"></span></span>
+      </header>
+      <ul class="mob-nav vis-mob">
+	      <li><a href="about.html">About</a></li>
+	      <li><a href="services.html">Services</a></li>
+	      <li><a href="case-studies.html">Case Studies</a></li>
+	      <li><a href="contact.html">Contact</a></li>
+    </ul>
+      <div class="bodyContainer">
+        <div class="bigCircle"><span></span></div>
+        <div class="smallerCircle"><span></span></div>
+        <div class="content">
+          <div class="profileImage">
+            <img src="images/profile.jpg" alt="" class="profile" />
+          </div>
+          <h1>Nikunj Nagpal</h1>
+          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget odio venenatis, commodo nisl id, vehicula ex. 
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+            Aliquam sagittis iaculis ligula aliquam sodales. Etiam feugiat, ipsum eu dignissim aliquet, 
+            sem dolor condimentum erat, ut condimentum lacus augue sed sem.
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script/main.js"></script>
+    <script>
+      $("ul.isActive").prev().css("box-shadow", "0px -3px 7px #666");
+    </script>
+  </body>
 </html>

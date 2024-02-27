@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>indarCode - MERN Stack Developer</title>
+	<link rel="shortcut icon" href="fav.png"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/about.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+</head>
+<body>
+<section>
+	<header class="navHolder">
+        <a href="index.html" class="logo"><img src="images/profile_logo.png" alt="" /></a>
+        <ul class="nav vis-desk">
+          <li class="active-nav"><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+	    <span class="hamburger-box hamburger hamburger--squeeze"> <span class="hamburger-inner"></span></span>
+      </header>
+      <ul class="mob-nav vis-mob">
+	      <li><a href="about.html">About</a></li>
+	      <li><a href="services.html">Services</a></li>
+	      <li><a href="case-studies.html">Case Studies</a></li>
+	      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+<section class="about-holder innerontainer">
+	<div class="banner">
+		<img src="images/page_banner.jpg" alt="" />
+	</div>
+	<div class="about-content">
+			<h2 class="sectionTitle">About</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget odio venenatis, commodo nisl id, vehicula ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Aliquam sagittis iaculis ligula aliquam sodales. Etiam feugiat, ipsum eu dignissim aliquet, sem dolor condimentum erat, ut condimentum lacus augue sed sem. Integer efficitur risus at ultrices faucibus. Phasellus vel ipsum rutrum, porta orci in, sollicitudin ante.</p>
+				<p> Cras efficitur est eget dapibus tristique. Praesent vitae posuere leo, in dignissim nisl. Pellentesque id neque nisl. Donec molestie placerat rhoncus. Sed nec massa a enim fermentum varius vitae in felis.</p>
+<!-- <p>I believe in order to learn anything first you need to be curious about it and that will lead you to hell a lot of questions. that very moment you have won it around 90%, rest 10% will be how you find answers for all your question. </p> -->
+
+			<a href="Indrjit-Resume.pdf" target="_blank" class="resume-btn">DOWNLOAD RESUME</a>
+			
+			 <div class="social">
+			 	<h4>REACH ME:</h4>
+		        <a href="https://www.facebook.com/indar.r.kumar" target="_blank" class="fb"></a>
+		        <a href="https://www.linkedin.com/in/indarcode/" target="_blank" class="in"></a>
+		        <a href="https://github.com/IndarCode" target="_blank" class="gi"></a>
+		        <a href="https://twitter.com/indarCode" target="_blank" class="tw"></a>
+		        <a href="" class="wt"></a>
+		      </div>
+		</div>
+		
+	</div>
+</section>
+
+
+
+<footer>
+	 Copyright © <script>document.write(new Date().getFullYear())</script>. All Rights Reserved.
+</footer>
+
+
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	
+const winHeight = $(window).outerHeight();
+	const headerHeight = $('header').outerHeight();
+	const footerHeight = $('footer').outerHeight();
+	const screenHeight = winHeight - (headerHeight + footerHeight);
+	const bodyHeight = $('.bodyContainer').outerHeight();
+
+	if( screenHeight  > bodyHeight) {
+		$('footer').addClass('fixed');
+	}
+	else{
+
+	}
+</script>
+<script src="script/main.js"></script>
+</body>
+</html>
