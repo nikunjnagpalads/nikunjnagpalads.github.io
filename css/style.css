@@ -159,6 +159,7 @@ ul.nav li:first-child:after {
   background-image: url(../images/page_banner.jpg);
   background-position: right;
   background-size: cover;
+  max-height: 230px;
 }
 
 .sectionTitle {

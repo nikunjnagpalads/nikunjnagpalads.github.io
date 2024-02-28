@@ -28,8 +28,8 @@
 	      <li><a href="contact.html">Contact</a></li>
     </ul>
 
-<section class="about-holder innerontainer">
-	<div class="banner"></div>
+<section class="about-holder">
+	<div class="banner caseStudies"></div>
 	
 	<div class="about-content">
 			<h2 class="sectionTitle">Case Studies</h2>
@@ -63,21 +63,21 @@
 
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
+ <script type="text/javascript">
 	
-const winHeight = $(window).outerHeight();
-	const headerHeight = $('header').outerHeight();
-	const footerHeight = $('footer').outerHeight();
-	const screenHeight = winHeight - (headerHeight + footerHeight);
-	const bodyHeight = $('.bodyContainer').outerHeight();
-
-	if( screenHeight  > bodyHeight) {
-		$('footer').addClass('fixed');
-	}
-	else{
-
-	}
-</script>
+	const winHeight = $(window).outerHeight();
+		const headerHeight = $('header').outerHeight();
+		const footerHeight = $('footer').outerHeight();
+		const screenHeight = winHeight - (headerHeight + footerHeight);
+		const bodyHeight = $('.bodyContainer').outerHeight();
+	
+		if( screenHeight  > bodyHeight) {
+			$('footer').addClass('fixed');
+		}
+		else{
+	
+		}
+	</script>
 <script src="script/main.js"></script>
 </body>
 </html>

@@ -52,8 +52,8 @@
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-	
-const winHeight = $(window).outerHeight();
+	$( document ).ready(function() {
+		const winHeight = $(window).outerHeight();
 	const headerHeight = $('header').outerHeight();
 	const footerHeight = $('footer').outerHeight();
 	const screenHeight = winHeight - (headerHeight + footerHeight);
@@ -65,6 +65,8 @@ const winHeight = $(window).outerHeight();
 	else{
 
 	}
+});
+
 </script>
 <script src="script/main.js"></script>
 </body>

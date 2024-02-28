@@ -3,6 +3,10 @@
     text-align: center;
     margin: 0 auto 10vh;
 }
+.banner.about {
+    background-image: url("../images/about_banner.jpg");
+    background-position: center;
+}
 .about-content .social {
     position: static;
     margin-top: 4vh;
