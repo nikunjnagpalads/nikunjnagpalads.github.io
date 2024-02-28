@@ -1,7 +1,95 @@
 .about-content {
-    width: calc(100% - 35vw);
+    width: calc(100% - 16vw);
     text-align: center;
     margin: 0 auto 10vh;
+}
+.servicesHolder {
+    background-color: #f5f7ff;
+    padding: 3vh 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+    /* background-image: url("../images/services-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+}
+.servicesHolder img {
+    max-width: 90px;
+    margin: 0 auto 15px;
+    max-height: 50px;
+}
+.servicesHolder > div {
+    width: 33%;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+.servicesHolder > div:after {
+    content: ' ';
+    display: block;
+    height: 100px;
+    width: 1px;
+    background-color: #5b71d7;
+    position: absolute;
+    left: 0;
+}
+.servicesHolder > div:first-child:after {
+    display: none;
+}
+.servicesHolder > div h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.servicesHolder > div h4 {
+    font-size: 13px;
+    line-height: 14px;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.processHolder {
+    margin: 7vh auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw;
+}
+.processHolder > div {
+    width: 25%;
+    padding: 20px;
+    border: 1px solid #afc0fd;
+    height: 120px;
+    margin: 20px;
+    border-radius: 4px;
+}
+.processHolder h3 {
+    font-size: 1.8vh;
+    line-height: 2vh;
+    display: inline-block;
+    background-color: #fff;
+    position: relative;
+    top: -30px;
+    padding: 0 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+section.processSection {
+    text-align: center;
+}
+.processHolder h5 {
+    font-size: 1.4vh;
+    line-height: 1.4vh;
+    font-weight: 400;
+    margin-top: -15px;
 }
 .banner.services {
     background-image: url("../images/services_banner.jpg");
@@ -12,7 +100,8 @@
     margin-top: 4vh;
 } 
 .about-content p {
-    margin-top: 40px;
+    margin: 0px auto 10px;
+    max-width: 65vw;
 }
 .about-content p span{
     font-weight: 600;
