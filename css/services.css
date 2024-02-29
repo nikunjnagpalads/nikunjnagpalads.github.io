@@ -127,7 +127,7 @@ section.processSection {
 
 
 
-@media (max-width: 767px){
+@media (max-width: 1024px){
     
 .about-content {
     width: 90%;
@@ -140,13 +140,51 @@ section.processSection {
 }
 .about-content p {
     margin-top: 15px;
+    max-width: 100vw;
 }
-.social h4 {
-    font-size: 12px;
-    margin-right: 0;
+.servicesHolder {
+    padding: 10vw 2vw;
+    margin-bottom: 10vh;
+    flex-direction: column;
+}
+.servicesHolder > div {
+    padding: 2vw;
+    margin-bottom: 5vh;
+    width: 100%;
+}
+.servicesHolder > div:first-child:after {
     display: block;
+}
+.servicesHolder > div:last-child:after {
+    display: none;
+}
+.servicesHolder > div:after {
+    height: 1px;
+    width: 150px;
+    bottom: -2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0vh;
+}
+.processHolder {
+    margin: 5vh auto;
+    max-width: 90vw;
+    flex-direction: column;
+}
+.processHolder > div {
+    width: 90%;
+    padding: 20px;
+    height: 120px;
+    margin: 0px 0 50px;
+    border-radius: 4px;
+}
+.processHolder h3 {
+    font-size: 18px;
+    line-height: 20px;
+}
+.processHolder h5 {
+    font-size: 13px;
     line-height: 15px;
-    margin-bottom: 7px;
 }
 }
 
@@ -154,5 +192,28 @@ section.processSection {
 @media (min-width: 768px) and (max-width: 1024px) {
     .about-content {
         width: 75%;
+    }
+    .servicesHolder {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5vw 2vw 2vw;
+        margin-bottom: 5vh;
+    }
+    .servicesHolder > div {
+        padding: 2vw;
+        margin-bottom: 5vh;
+        width: 40%;
+    }
+    .servicesHolder > div:nth-last-child(2):after {
+        display: none;
+    }
+    .processHolder {
+        margin: 5vh auto;
+        max-width: 90vw;
+        flex-direction: row;
+    }
+    .processHolder > div {
+        width: 40%;
+        margin: 0px 30px 50px;
     }
 }

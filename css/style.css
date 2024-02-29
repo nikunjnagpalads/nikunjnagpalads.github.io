@@ -63,7 +63,7 @@ ul.nav li {
 }
 ul.nav li.active-nav a {
   font-weight: 900;
-  color: #ff0260;
+  color: #ff0260 !important;
 }
 ul.nav li a {
   text-transform: uppercase;

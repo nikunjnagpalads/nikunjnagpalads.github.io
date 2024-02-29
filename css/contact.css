@@ -67,6 +67,9 @@ button.blankButton {
 .contactContent p{
 	margin-bottom: 5vh;
 }
+.contactContent ul li {
+    margin-bottom: 10px
+}
 .contactContent ul li a:hover{
     color:#ff0260;
     font-weight: 600;
@@ -80,9 +83,14 @@ button.blankButton {
     height: 24px;
     width: 30px;
     background-image: url(../images/sprite.png);
-    background-position: 0px -69px;
     vertical-align: bottom;
     margin-right: 10px;
+}
+.contactContent ul li a.mailer:before {
+    background-position: 0px -69px;
+}
+.contactContent ul li a.phone:before {
+    background-position: -70px -68px;
 }
 
 .meta-info{
