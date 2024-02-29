@@ -7,10 +7,7 @@
     background-image: url("../images/about_banner.jpg");
     background-position: center;
 }
-.about-content .social {
-    position: static;
-    margin-top: 4vh;
-} 
+
 .about-content p {
     margin-top: 40px;
 }
@@ -18,20 +15,79 @@
     font-weight: 600;
     color: #ff0260;
 }
-.about-content .social a {
+.testimonialContainer {
+    width: 100%;
+    text-align: center;
+    background-color: #f5f7ff;
+    padding: 3vh 8vh;
+    margin-bottom: 5vh;
+}
+.carousel {
+    position: relative;
+    max-width: 70vw;
+    margin: 0 auto;
+}
+.carousel h2{
+    font-size: 3vh;
+}
+.carousel h4{
+    font-size: 1.8vh;
+    font-weight: 400;
+    min-height: 10vh;
+}
+.clientImage {
+    max-width: 14vh;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.carousel-indicators {
+    bottom: 0px !important;
+}
+.carousel-indicators li {
+    background-color: #ffcbde !important;
+}
+.carousel-indicators li.active {
+    background-color: #ff0260 !important;
+}
+.item {
+    padding: 5vh 2vh;
+}
+.carousel-control {
+    background-image: none !important;
+}
+.carousel-control.right {
+    right: -10% !important;
+}
+.carousel-control.left {
+    left: -10%;
+}
+.socialBlock {
+    text-align: center;
+    margin-bottom: 5vh;
+}
+.socialBlock .social {
+    position: static;
+    margin-top: 4vh;
+} 
+.socialBlock a {
     vertical-align: middle;
 }
-.about-content a.resume-btn {
-    font-size: 0.8vw;
+.socialBlock a.resume-btn {
+    font-size: 1.5vh;
     font-weight: 900;
-    margin-top: 3vh;
+    margin-top: 2vh;
     display: inline-block;
     text-decoration: underline;
     color: #ff0260;
 }
-
-
-
+.carousel-inner {
+    position: relative;
+    width: 90% !important;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1600px 
+}
 
 
 

@@ -4,7 +4,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  color: #252525;
+  color: #252525 !important;
   font-family: "Roboto", sans-serif;
   font-size: 1.15vw;
 }
@@ -167,6 +167,7 @@ ul.nav li:first-child:after {
   font-size: 5vh;
   letter-spacing: -1px;
   display: inline-block;
+  font-weight: 600;
 }
 
 h2.sectionTitle:after {
